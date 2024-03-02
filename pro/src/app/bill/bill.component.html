@@ -1,0 +1,39 @@
+<div>
+    <form #billForm=ngForm (ngSubmit)="orders(billForm.value)" novalidate>
+        Order No / Order Id : <input type="number" ngModel name="orderno" #orderno=ngModel><br><br>
+        <button [disabled]="!billForm.valid" class="btn btn-secondary"> Search</button>
+    </form>
+</div>
+<div>
+    <table class="table table-hover table-condensed table-stripped">
+        <thead>
+            <tr class="bg bg-black" style="color:aliceblue;">
+            <th>S No</th>
+            <th>Order Id</th>
+            <th>Items</th>
+            <th>Table No</th>
+            <th>Quantity</th>
+            <th>Price Per Qty</th>
+            <th>Total Price</th>
+            <th>Payment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let w of orderlist" >
+                <td>{{w.sno}}</td>
+                <td>{{w.orderno}}</td>
+                <td>{{w.items}}</td>
+                <td>{{w.tableno}}</td>
+                <td>{{w.quantity}}</td>
+                <td>{{w.price}}</td>
+                <td>{{w.quantity|price:w.price}}</td>
+                <td>{{w.payement}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>The total amount to be paid is {{sum}} rupeess</h3>
+    <button class="btn btn-secondary" (click)="payment(billForm,orderlist,sum)" >pay</button>
+
+    
+</div>
+<!-- (click)="pay(sum)"  -->

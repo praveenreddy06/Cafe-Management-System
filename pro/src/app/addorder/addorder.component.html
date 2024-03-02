@@ -1,0 +1,96 @@
+
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+                  <form #addorderform=ngForm (ngSubmit)="neworder(addorderform.value)">
+                    <h4 class="mt-1 mb-5 pb-1">New Order</h4>
+                    <div class="form-outline mb-4">
+                      <label class="form-label">Order Id</label>
+                      <input type="text" class="form-control" placeholder="Order No"  ngModel name="orderno" #orderno=ngModel/>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <label class="form-label">Item </label>
+                      <select  class="form-control" placeholder="Item" ngModel name="items" #items=ngModel>
+                        <option *ngFor="let pl of productlist">{{pl.item}}</option>
+                    </select>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label">Quantity </label>
+                        <select class="form-control" ngModel name="quantity" #quantity=ngModel aria-placeholder="select Quantity">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label">Price</label>
+                        <select  class="form-control" placeholder="Price" ngModel name="price" #price=ngModel>
+                            <option value={{pl.price}} *ngFor="let pl of productlist">{{pl.item}}</option>
+                        </select>
+                        <p style="color: red;">select the same item name to include price </p>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label">Table No</label>
+                        <select class="form-control"  ngModel name="tableno" #tableno=ngModel aria-placeholder="select Table">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                      </div>
+                      
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" [disabled]="addorderform.invalid">Add order
+                        </button>
+                    </div>
+                   
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4"><i>Hurray..!</i></h4>
+                  <p class="large mb-0">Customer loving the food......
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div>
+    <button class="btn btn-md bg-warning" (click)="showprod()">Products</button>
+</div>
+<div *ngIf="!isCollapsed">
+    <table class="table table-hover table-condensed table-stripped">
+        <thead>
+            <tr class=" bg-black" style="color: white">
+                <th>id</th>
+                <th>Item</th>
+                <th>Image</th>
+                <th>Price</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prod of products">
+                <td>{{prod.id}}</td>
+                <td>{{prod.item}}</td>
+                <td><img [src]="prod.image" alt="no image" width="150px" height="150px"></td>
+                <td>{{prod.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

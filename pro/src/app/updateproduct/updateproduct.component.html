@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()">
+    <table  >
+       
+        <tr>
+            <td><label>Item</label></td>
+            <td><input type="text" name="item" [(ngModel)]="product.item"  ></td>
+        </tr>
+
+        <tr>
+            <td><label>Price</label></td>
+            <td><input type="number" name="price" [(ngModel)]="product.price"></td>
+        </tr>   <tr>
+            <td><label>Image</label></td>
+            <td><input type="text" name="image" [(ngModel)]="product.image"></td>
+        </tr>
+           </table>
+    <button type="submit" class="btn btn btn-primary" >Update Product</button>
+</form> 

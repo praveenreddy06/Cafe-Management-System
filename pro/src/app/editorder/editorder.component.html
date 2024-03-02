@@ -1,0 +1,109 @@
+<!-- <form (ngSubmit)="onSubmit()">
+    <label>Order Id</label><br>
+    <input type="number" name="orderno" [(ngModel)]="order.orderno">
+    <br>
+
+    <label>Item</label><br>
+    <select name="items" [(ngModel)]="order.items">{{order.items}}
+        <option *ngFor="let o of orders">{{o.item}}</option>
+    </select>
+
+    <br>
+
+    <label>Quantity</label>
+    <br>
+    <input type="number" name="quantity" [(ngModel)]="order.quantity">
+    <br>
+    <label>Price</label><br>
+    <select name="price" [(ngModel)]="order.price">
+        <option value={{o.price}} *ngFor="let o of orders">{{o.item}}</option>
+    </select>
+
+    <br>
+
+    <label>Table NO</label>
+    <br>
+    <select type="number" name="tableno" [(ngModel)]="order.tableno">
+    
+        
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        </select><br><br><br>
+
+    <button type="submit" class="btn btn btn-primary">Update Product</button>
+</form> -->
+
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+                  <form (ngSubmit)="onSubmit()">
+                    <h4 class="mt-1 mb-5 pb-1">Edit Order</h4>
+                    <div class="form-outline mb-4">
+                      <label class="form-label">Order Id</label>
+                      <input type="text" class="form-control" placeholder="Order No"  name="orderno" [(ngModel)]="order.orderno"/>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <label class="form-label">Item </label>
+                      <select  class="form-control" placeholder="Item"  name="items" [(ngModel)]="order.items">
+                        <option *ngFor="let o of orders">{{o.item}}</option>
+                    </select>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label">Quantity </label>
+                        <select class="form-control" name="quantity" [(ngModel)]="order.quantity" aria-placeholder="select Quantity">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label">Price</label>
+                        <select  class="form-control" name="price" [(ngModel)]="order.price">
+                            <option value={{o.price}} *ngFor="let o of orders">{{o.item}}</option>
+                        </select>
+                      </div>
+                      <div class="form-outline mb-4">
+                        <label class="form-label">Table No</label>
+                        <select class="form-control"  name="tableno" [(ngModel)]="order.tableno" aria-placeholder="select Table">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                      </div>
+                      
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Update order
+                        </button>
+                    </div>
+                   
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4"><i>Hurray..!</i></h4>
+                  <p class="large mb-0">Customer loving the food......
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

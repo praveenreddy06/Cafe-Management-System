@@ -1,0 +1,73 @@
+<h1>Employee Registration Form</h1>
+<form #registrationForm="ngForm" (ngSubmit)="registrationok(registrationForm.value)" novalidate align="center">
+    <!-- //#:syntax,ngForm:attribute novalidate is for angular  -->
+    <pre>
+
+    </pre>
+    
+    Enter Id   : <input  type="text" ngModel name="empId" #empId="ngModel" required minlength="3" maxlength="8" placeholder="Enter employee Id"><br><br>
+    Enter Name : <input type="text" ngModel name="empName" #empName="ngModel" required minlength="3" maxlength="15" placeholder="Enter employee Name"><br><br>
+    Enter Salary : <input type="text" ngModel name="empSalary" #salary="ngModel" required minlength="4" maxlength="6" placeholder="Enter salary"><br><br>
+    Gender :    <select ngModel name="gender" #gender="ngModel" required aria-placeholder="please select gender" >     <option value="" disabled selected hidden> Please select gender</option> <option >Male</option>   <option>Female</option> <option>Others</option>
+              
+     </select>
+  
+<br><br>
+    Enter Experience : <input type="text" ngModel name="empExperience" #empExperience="ngModel" required placeholder="Please enter experience"><br><br>
+    Enter Email-Id : <input type="email" ngModel name="empMail" #empMail="ngModel" required minlength="12" maxlength="50" placeholder="Please enter email-Id"><br><br>
+    Enter Date-of-Join : <input type="text" ngModel name="empJoin" #empJoin="ngModel" required placeholder="Please enter joining date"><br><br>
+        Country : <select ngModel name="country" #country="ngModel" required aria-placeholder="Please select country">
+            <option value="" disabled selected hidden> Please select country</option>
+            <option>West-indies</option>
+            <option>United-states</option>
+            <option>United-kingdom</option>
+            <option>Phillipines</option>
+            <option>Thailand</option>
+            <option>China</option>
+            <option>India</option>
+        </select><br><br>
+     Enter Phone : <input type="text" ngModel name="empPhone" #empPhone="ngModel" required placeholder="Please enter phone number"><br><br>
+     Enter Password : <input type="password" ngModel name="empPassword" #empPassword = "ngModel" required minlength="6" maxlength="12" placeholder="Please enter password"><br><br>
+    
+   <button  [disabled] ="registrationForm.invalid">REGISTER</button>
+  
+</form>
+
+<div *ngIf="empId.errors?.['required'] && empId.touched ">Please enter employee Id</div>
+<div *ngIf="empId.errors?.['minlength'] && empId.touched">Enter atleast 3 characters </div>
+<div *ngIf="empName.errors?.['required'] && empName.touched">Please enter employee Name</div>
+<div *ngIf="empName.errors?.['minlength'] && empName.touched">Enter atleast 3 characters</div>
+<div *ngIf="salary.errors?.['required'] && salary.touched">Please enter salary</div>
+<div *ngIf="salary.errors?.['minlength'] && salary.touched">Enter atleast 4 characters </div>
+<div *ngIf="gender.errors?.['required'] && gender.touched">Select gender</div>
+
+<div *ngIf="empExperience.errors?.['required'] && empExperience.touched">Please enter experience</div>
+
+<div *ngIf="empMail.errors?.['required'] && empMail.touched">Please enter emailId</div>
+<div *ngIf="empMail.errors?.['minlength'] && empMail.touched">Enter atleast 12 characters</div>
+
+<div *ngIf="empJoin.errors?.['required'] && empJoin.touched">Please enter date of join</div>
+
+<div *ngIf="country.errors?.['required'] && country.touched">Please select country  </div>
+
+
+
+
+<div *ngIf="empPhone.errors?.['required'] && empPhone.touched">Please enter phone number</div>
+<div *ngIf="empPassword.errors?.['required'] && empPassword.touched">lease enter password</div>
+<div *ngIf="empPassword.errors?.['minlength'] && empPassword.touched">Enter atleast 6 characters</div>  
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+</body>
+</html>

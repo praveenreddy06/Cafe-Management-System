@@ -1,0 +1,40 @@
+<div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" style="float:right;">
+    <div class="toast-body bg-success" style="color: aliceblue;">
+        login successfull
+    </div>
+</div>
+<br><br>
+<div>
+    <button class="btn btn-lg bg-warning" (click)="neworder()">New Order</button>&nbsp;&ensp;
+    <button class="btn btn-lg bg-warning" (click)="bill()">Bill</button><br><br>
+    <table class="table table-hover table-condensed table-stripped">
+        <thead>
+            <tr class="bg bg-black" style="color:aliceblue;">
+            <th>S No</th>
+            <th>Order Id</th>
+            <th>Items</th>
+            <th>Table No</th>
+            <th>Quantity</th>
+            <th>Price Per Qty</th>
+            <th>Total Price</th>
+            <th>Payment</th>
+            <th>Action
+            </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let w of waiter" >
+                <td>{{w.sno}}</td>
+                <td>{{w.orderno}}</td>
+                <td>{{w.items}}</td>
+                <td>{{w.tableno}}</td>
+                <td>{{w.quantity}}</td>
+                <td>{{w.price}}</td>
+                <td>{{w.quantity|price:w.price}}</td>
+                <td>{{w.payement}}</td>
+                <td><button type="submit" class="btn btn-md bg-warning" (click)="editorder(w.sno)">Edit Order</button>&nbsp;&ensp;
+                    <button type="submit"  class="btn btn-md bg-danger" (click)="delorder(w.sno)">Delete Order</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

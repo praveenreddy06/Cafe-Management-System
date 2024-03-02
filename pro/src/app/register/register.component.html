@@ -1,0 +1,57 @@
+<section class="h-100 gradient-form" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+                <form #userForm="ngForm" (ngSubmit)="submitUser(userForm.value)" novalidate>
+                  <h4 class="mt-1 mb-5 pb-1">Registration</h4>
+                  <div class="form-outline mb-4">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-control" placeholder="Username" name="username" ngModel #username=ngModel required>
+                    <div *ngIf="username.errors?.['required'] && username.touched">This field is required</div>
+                    
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" placeholder="password"  name="password" ngModel  #password=ngModel 
+                    required minlength="5" maxlength="10">
+                    <div *ngIf="password.errors?.['required'] && password.touched">This field is required</div>
+                    <div *ngIf="password.errors?.['minlength'] && password.touched">atleast 5 characters required</div>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" placeholder="Name" name="name" ngModel  #name=ngModel required>
+                    <div *ngIf="name.errors?.['required'] && name.touched">This field is required</div>
+                  </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label">Phone No</label>
+                    <input type="text" class="form-control" placeholder="10 digit number"  name="phoneno" ngModel  #phoneno=ngModel required minlength="10" maxlength="10">
+                    <div *ngIf="phoneno.errors?.['required'] && phoneno.touched">This field is required</div>
+                    
+                    <div *ngIf="phoneno.errors?.['minlength'] && phoneno.touched">Enter 10 digit number</div>
+                    <div *ngIf="phoneno.errors?.['maxlength'] && phoneno.touched">Enter 10 digit number</div>
+                  </div>
+                  <div class="text-center pt-1 mb-5 pb-1">
+                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"[disabled]="!userForm.valid">Register
+                      in</button>
+                  </div>
+                  
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                <h4 class="mb-4"><i>Welcome to Cafe</i></h4>
+                <p class="large mb-0">Register here and enjoy your work...!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

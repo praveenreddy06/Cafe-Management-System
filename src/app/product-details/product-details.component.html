@@ -1,0 +1,20 @@
+<table class="table table-bordered table-hover table-condensed table-stripped">
+    <thead class="table-primary">
+        <tr class="bg-info">
+            <th>id</th>
+            <th>item</th>
+            <th>price</th>
+          
+            
+     </tr>
+    </thead>
+    <tbody  style="text-align:center">
+    <tr *ngFor="let fd of details">
+        <td><input type="radio">{{fd.id}}</td>
+        <td>{{fd.item}}</td>
+        <td>{{fd.price}}</td>
+        
+   </tr>
+</tbody>
+</table>
+<button class="btn btn-info" (click)="getno()">get details</button>
